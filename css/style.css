@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Grotesque-Bold";
+  src: url("../assets/fonts/bacardi-ru-fonts/Grotesque-Bold.eot");
+  src: url("../assets/fonts/bacardi-ru-fonts/Grotesque-Bold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Bold.woff2") format("woff2"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Bold.woff") format("woff"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Bold.ttf") format("truetype"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Bold.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Grotesque-Condensed";
+  src: url("../assets/fonts/bacardi-ru-fonts/Grotesque-Condensed.eot");
+  src: url("../assets/fonts/bacardi-ru-fonts/Grotesque-Condensed.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Condensed.woff2") format("woff2"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Condensed.woff") format("woff"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Condensed.ttf") format("truetype"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Condensed.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Grotesque-Regular";
+  src: url("../assets/fonts/bacardi-ru-fonts/Grotesque-Regular.eot");
+  src: url("../assets/fonts/bacardi-ru-fonts/Grotesque-Regular.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Regular.woff2") format("woff2"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Regular.woff") format("woff"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Regular.ttf") format("truetype"), url("../assets/fonts/bacardi-ru-fonts/Grotesque-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 /* === Reset style all browsers === */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ol, ul, li,
 fieldset, form, label, legend, article, aside, figure, figcaption,
@@ -42,6 +63,7 @@ body {
 
 .header {
   background: #1b1818;
+  font-family: "Grotesque-Bold";
 }
 .header-top-menu {
   background: #f2ede8;
@@ -93,6 +115,12 @@ body {
   margin-left: -15px;
   background: #1b1818;
 }
+.header-nav-item .header-nav__items {
+  display: none;
+}
+.header-nav-item:hover .header-nav__items {
+  display: block;
+}
 .header-nav-item__link {
   color: #fff;
   position: relative;
@@ -121,6 +149,132 @@ body {
   border-right: 1px solid white;
   border-bottom: 1px solid white;
   transform: rotate(45deg);
+}
+.header-nav-item__link:hover {
+  color: red;
+}
+
+.panel-collection {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.panel--type-hero_layout {
+  width: 100%;
+}
+.panel--type-hero_layout .panel__container {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.panel--type-hero_layout.win_festival .panel__container {
+  height: 280px;
+  background-image: url(../assets/images/bg-festival-container.jpg);
+}
+.panel--type-hero_layout.bacardi_logo_center {
+  height: 710px;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__container {
+  background-size: 100% 580px;
+  background-image: url(../assets/images/bg-logo-container.jpg);
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content {
+  width: 710px;
+  background-image: url(../assets/images/bg-logo.png);
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .wp-image {
+  display: flex;
+  justify-content: center;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .wp-image img {
+  width: 50%;
+  height: 50%;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc h3 {
+  font-family: "Grotesque-Bold";
+  font-size: 20px;
+  padding: 20px;
+  text-transform: uppercase;
+  width: 50%;
+  text-align: center;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code input {
+  padding: 10px 20px;
+  font-size: 20px;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code .fl-button {
+  width: 120px;
+  height: 80px;
+  margin: 30px;
+}
+.panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code .fl-button__link {
+  color: white;
+  padding: 20px 30px;
+  background: #c90126;
+  display: block;
+  text-align: center;
+  background: linear-gradient(135deg, transparent 10px, #c90126 0) top left, linear-gradient(-135deg, transparent 10px, #c90126 0) top right, linear-gradient(-45deg, transparent 10px, #c90126 0) bottom right, linear-gradient(45deg, transparent 10px, #c90126 0) bottom left;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+}
+.panel .fl-wrap--height-full {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.panel__content--center {
+  height: 100%;
+}
+.panel__restricted-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.panel__restricted-content .slide-description__title {
+  font-family: "Grotesque-Condensed";
+  font-size: 95px;
+  line-height: 81px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+.panel__restricted-content .slide-description__title em {
+  font-family: "Grotesque-Regular";
+  font-size: 53px;
+  line-height: 53px;
+  font-weight: bold;
+  font-style: normal;
+  border-top: 11px solid white;
+  border-bottom: 11px solid white;
+  box-sizing: border-box;
+}
+.panel__restricted-content .slide-description__title strong {
+  font-size: 74px;
+  line-height: 111px;
+  font-family: "Grotesque-Bold";
+}
+.panel__container {
+  width: 75%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */
