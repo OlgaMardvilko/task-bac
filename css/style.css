@@ -31,7 +31,7 @@
 
 .fa, .fas {
   font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+  font-weight: 600;
 }
 
 @font-face {
@@ -128,15 +128,41 @@ body {
 .header-container .custom-logo-link {
   margin: 0 auto;
 }
-.header-menu__btn.fa-bars {
+.header .js-dropdown-mob-menu {
+  display: none;
+}
+.header .js-dropdown-mob-menu--opened {
+  display: block;
+}
+.header-menu__btn.fa-bars, .header-menu__btn.fa-times {
   position: absolute;
   left: 20px;
 }
+.header-menu__btn.fa-bars::before, .header-menu__btn.fa-times::before {
+  width: 40px;
+  font-size: 40px;
+}
+.header-menu__btn.fa-bars {
+  display: block;
+}
 .header-menu__btn.fa-bars::before {
   content: "";
-  width: 30px;
-  font-size: 30px;
-  color: black;
+  color: #000;
+}
+.header-menu__btn.fa-bars.js-open--menu {
+  display: none;
+}
+.header-menu__btn.fa-times {
+  display: none;
+}
+.header-menu__btn.fa-times::before {
+  content: "";
+  color: #b19473;
+  background: #f2ede8;
+  padding-right: 10px;
+}
+.header-menu__btn.fa-times.js-open--menu {
+  display: block;
 }
 .header-menu-logo {
   display: none;
@@ -151,16 +177,18 @@ body {
 }
 .header-nav__items {
   display: flex;
-  width: 100%;
+  width: 50%;
   justify-content: space-between;
-  align-items: center;
   flex-direction: column;
+  font-family: "EngraversGothic";
+  font-size: 26px;
   margin: auto;
 }
 .header-nav__items .header-nav__items {
   display: block;
   position: relative;
-  width: 190px;
+  width: 100%;
+  font-size: 20px;
   height: auto;
   top: auto;
   left: 60px;
@@ -200,8 +228,8 @@ body {
   right: 20%;
   width: 4px;
   height: 4px;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   transform: rotate(45deg);
 }
 .header-nav-item__link:hover {
@@ -254,8 +282,7 @@ body {
   height: 50%;
 }
 .panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc h3 {
-  font-family: "Grotesque-Bold";
-  font-size: 20px;
+  font: 2rem "Grotesque-Bold, sans-serif";
   padding: 20px;
   text-transform: uppercase;
   width: 50%;
@@ -267,8 +294,10 @@ body {
   align-items: center;
 }
 .panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code input {
-  padding: 10px 20px;
-  font-size: 20px;
+  padding: 10px 70px;
+  width: 370px;
+  box-sizing: border-box;
+  font-size: 3rem;
 }
 .panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code .fl-button {
   width: 150px;
@@ -276,8 +305,8 @@ body {
   margin: 30px;
 }
 .panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code .fl-button__link {
-  font-size: 12px;
-  color: white;
+  font-size: 1.2rem;
+  color: #fff;
   padding: 21px 50px;
   line-height: 60px;
   text-align: center;
@@ -286,7 +315,9 @@ body {
   background-size: 51% 51%;
 }
 .panel--type-hero_layout.bacardi_logo_center .panel__restricted-content .panel__desc .enter-your-code .fl-button__link:hover {
-  color: #b19473;
+  background: linear-gradient(135deg, transparent 10px, #b20022 0) top left, linear-gradient(-135deg, transparent 10px, #b20022 0) top right, linear-gradient(-45deg, transparent 10px, #b20022 0) bottom right, linear-gradient(45deg, transparent 10px, #b20022 0) bottom left;
+  background-repeat: no-repeat;
+  background-size: 51% 51%;
 }
 .panel .fl-wrap--height-full {
   height: 100%;
@@ -302,10 +333,9 @@ body {
   height: 100%;
 }
 .panel__restricted-content .slide-description__title {
-  font-family: "Grotesque-Condensed";
-  font-size: 95px;
-  line-height: 81px;
-  color: white;
+  font: 5.6rem "Grotesque-Condensed, sans-serif";
+  line-height: 70px;
+  color: #fff;
   display: flex;
   flex-wrap: wrap;
   width: 70%;
@@ -313,22 +343,20 @@ body {
   align-items: center;
   justify-content: space-around;
   text-transform: uppercase;
-  letter-spacing: -2px;
+  letter-spacing: 0.5rem;
 }
 .panel__restricted-content .slide-description__title em {
-  font-family: "Grotesque-Regular";
-  font-size: 53px;
-  line-height: 53px;
-  font-weight: bold;
+  font: 700 2.6rem "Grotesque-Bold, sans-serif";
+  line-height: 2.6rem;
   font-style: normal;
-  border-top: 11px solid white;
-  border-bottom: 11px solid white;
+  border-top: 5px solid #fff;
+  border-bottom: 5px solid #fff;
   box-sizing: border-box;
+  padding: 3px 0;
 }
 .panel__restricted-content .slide-description__title strong {
-  font-size: 74px;
-  line-height: 111px;
-  font-family: "Grotesque-Bold";
+  font: 700 5rem "Grotesque-Bold, sans-serif";
+  line-height: 90px;
 }
 .panel__container {
   width: 75%;
@@ -339,7 +367,7 @@ body {
   justify-content: center;
 }
 .panel--type-custom_layout_row {
-  width: 75%;
+  width: 95%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -358,45 +386,49 @@ body {
   padding: 10px 0;
   text-align: center;
 }
-.panel--type-custom_layout_row .fl-text .title {
-  font-family: "Grotesque-Bold";
-  font-size: 28px;
+.panel--type-custom_layout_row .fl-text h2 {
+  font: 2rem "Grotesque-Condensed, sans-serif";
+  display: flex;
+  flex-direction: column;
 }
-.panel--type-custom_layout_row .fl-text h4 {
-  font-family: "Grotesque-Bold";
-  font-size: 20px;
+.panel--type-custom_layout_row .fl-text h2 strong {
+  font: 700 2rem "Grotesque-Bold, sans-serif";
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+}
+.panel--type-custom_layout_row .fl-text .title, .panel--type-custom_layout_row .fl-text h4 {
+  font: 700 2rem "Grotesque-Bold, sans-serif";
 }
 .panel--type-custom_layout_row .fl-text p {
-  font-family: Garamond;
-  font-size: 18px;
+  font: 400 1.8rem "Garamond, serif";
   text-transform: none;
 }
 .panel--type-custom_layout_row .fl-text p a {
-  color: black;
+  color: #000;
   text-decoration: underline;
 }
 .panel--type-custom_layout_row .fl-text p a:hover {
   color: #b19473;
 }
 .panel--type-custom_layout_row .fl-text .festival-text, .panel--type-custom_layout_row .fl-text .dates-text {
-  font-family: "Grotesque-Bold";
-  font-size: 20px;
+  font: 700 2rem "Grotesque-Bold, sans-serif";
+  text-transform: uppercase;
+  padding: 0 40px;
 }
 .panel--type-custom_layout_row .fl-text .dates-text {
-  font-size: 28px;
+  font-size: 2.8rem;
   margin: 20px auto;
 }
 .panel--type-custom_layout_row .fl-text ul {
   display: flex;
 }
 .panel--type-custom_layout_row .fl-text ul li {
+  font: 400 1.8rem "Garamond, serif";
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 0.5;
-  font-size: 18px;
   text-transform: none;
-  font-family: Garamond;
 }
 .panel--type-custom_layout_row .fl-text ul li:before {
   content: "";
@@ -422,10 +454,10 @@ body {
   background-position: 103% 55%;
 }
 .panel--type-custom_layout_row.main_prize h2, .panel--type-custom_layout_row.main_prize h3, .panel--type-custom_layout_row.moves_you h2, .panel--type-custom_layout_row.moves_you h3 {
-  font-family: "Grotesque-Bold";
-  font-size: 24px;
+  font: 700 1.8rem "Grotesque-Bold, sans-serif";
   display: flex;
   align-items: center;
+  flex-direction: row;
   line-height: 20px;
 }
 .panel--type-custom_layout_row.main_prize h2:before, .panel--type-custom_layout_row.main_prize h2:after, .panel--type-custom_layout_row.main_prize h3:before, .panel--type-custom_layout_row.main_prize h3:after, .panel--type-custom_layout_row.moves_you h2:before, .panel--type-custom_layout_row.moves_you h2:after, .panel--type-custom_layout_row.moves_you h3:before, .panel--type-custom_layout_row.moves_you h3:after {
@@ -434,6 +466,12 @@ body {
 }
 .panel--type-custom_layout_row.main_prize h2:after, .panel--type-custom_layout_row.main_prize h3:after, .panel--type-custom_layout_row.moves_you h2:after, .panel--type-custom_layout_row.moves_you h3:after {
   transform: rotate(180deg);
+}
+.panel--type-custom_layout_row.main_prize .fl-component, .panel--type-custom_layout_row.moves_you .fl-component {
+  margin: 0 auto;
+}
+.panel--type-custom_layout_row.main_prize.moves_you h3, .panel--type-custom_layout_row.moves_you.moves_you h3 {
+  margin: 80px 0 20px;
 }
 .panel.bacardi_brand {
   background-image: url(../assets/images/bg-brand.png);
@@ -464,12 +502,13 @@ body {
   top: 20px;
 }
 .panel.bacardi_brand .row-panel__container h3 {
-  font-family: "Grotesque-Condensed";
-  font-size: 34px;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  width: 440px;
-  padding: 10px 135px;
+  font: 3.4rem "Grotesque-Condensed, sans-serif";
+  line-height: 46px;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  width: 400px;
+  padding: 0 100px;
+  margin-top: -10px;
 }
 .panel.bacardi_brand .row-panel__container h3 strong {
   font-family: "Grotesque-Bold";
@@ -477,16 +516,15 @@ body {
 
 .footer {
   width: 100%;
+  margin-top: 40px;
 }
 .footer-top {
+  font: 700 2.2rem "Grotesque-Bold, sans-serif";
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Grotesque-Bold", sans-serif;
-  font-size: 20px;
-  background: #1a1818;
-  font-size: 2.2rem;
+  background: #1b1818;
   text-transform: uppercase;
   padding: 50px 0;
   font-weight: 700;
@@ -506,6 +544,9 @@ body {
 .footer-social-nav-item, .footer-sign-nav-item {
   margin: 0 10px;
 }
+.footer-social-nav-item:hover, .footer-sign-nav-item:hover {
+  opacity: 0.7;
+}
 .footer-social-nav-item__link, .footer-sign-nav-item__link {
   display: flex;
   align-items: center;
@@ -524,14 +565,14 @@ body {
   font-style: normal;
 }
 .footer-sign a {
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 20px;
   color: #b19473;
   text-decoration: underline;
   margin-top: 20px;
 }
 .footer-sign a:hover {
-  color: white;
+  color: #fff;
 }
 .footer .fa-twitter:before {
   content: "";
@@ -555,8 +596,7 @@ body {
   border-bottom: solid 5px #b19473;
 }
 .footer-responsibly {
-  font-family: "Grotesque-Bold", sans-serif;
-  font-size: 20px;
+  font: 700 2rem "Grotesque-Bold, sans-serif";
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -566,8 +606,9 @@ body {
 }
 .footer-visit a {
   margin: 0 8px;
-  color: black;
-  border-bottom: 1px solid black;
+  color: #000;
+  border-bottom: 1px solid #000;
+  display: inline-block;
 }
 .footer-visit a:hover {
   color: #b19473;
@@ -588,7 +629,13 @@ body {
 }
 
 @media (min-width: 768px) {
-  .header-menu__btn {
+  .header .js-dropdown-mob-menu {
+    display: block;
+  }
+  .header-menu__btn.fa-bars, .header-menu__btn.fa-times {
+    display: none;
+  }
+  .header-menu__btn.fa-bars.js-open--menu, .header-menu__btn.fa-times.js-open--menu {
     display: none;
   }
   .header-line {
@@ -599,14 +646,62 @@ body {
   }
   .header-nav__items {
     flex-direction: row;
+    font-size: 1.6rem;
+    align-items: center;
+    width: 100%;
   }
   .header-nav__items .header-nav__items {
     position: absolute;
     width: 190px;
+    font-size: 1.6rem;
     height: auto;
     top: auto;
     left: auto;
     margin-left: -15px;
+  }
+  .header-nav__items .header-nav__items .header-nav__items {
+    width: 190px;
+  }
+
+  .panel__restricted-content .slide-description__title {
+    font-size: 9.5rem;
+    line-height: 81px;
+  }
+  .panel__restricted-content .slide-description__title em {
+    font-size: 5.3rem;
+    line-height: 45px;
+  }
+  .panel__restricted-content .slide-description__title strong {
+    font-size: 7.4rem;
+    line-height: 111px;
+  }
+  .panel .fl-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    padding: 0 20px;
+    margin: 20px auto;
+  }
+  .panel .fl-text h2 {
+    font-size: 3.4rem;
+  }
+  .panel .fl-text h2 strong {
+    font-size: 3.4rem;
+  }
+  .panel .fl-text .title {
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+    padding: 0px 90px;
+  }
+  .panel .fl-text h4 {
+    font-size: 2rem;
+  }
+  .panel.main_prize h2, .panel.main_prize h3, .panel.moves_you h2, .panel.moves_you h3 {
+    font-size: 3rem;
+  }
+  .panel.bacardi_brand .fl-text p {
+    padding: 0 100px;
   }
 
   .footer-top {
@@ -618,12 +713,12 @@ body {
     flex-direction: row;
   }
   .footer-sign a {
-    font-size: 16px;
+    font-size: 1.6rem;
     margin: 0 0 0 10px;
   }
   .footer-responsibly {
     display: flex;
-    font-size: 16px;
+    font-size: 1.6rem;
   }
   .footer-visit, .footer-trademark {
     font-size: 1.6rem;
