@@ -2,20 +2,57 @@ $body-bg-color: #f2ede8;    // wheat
 $header-bg-color: #1b1818;     // light-black
 $white-color: #fff;     // white
 $red-color: #c90126; 
-// @text-color: #fff;          // white
-// @button-bg-color: #f9627d;  // pink
+$gold-color: #b19473;
 
-// @font-face {
-//     font-family: 'Web font';
-//     src: url('webfont.eot');                                    /* IE9 Compat Modes */
-//     src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-//          url('webfont.woff2') format('woff2'),                  /* Новейшие браузеры */
-//          url('webfont.woff') format('woff'),                    /* Новые браузеры и IE9+ */
-//          url('webfont.ttf')  format('truetype'),                /* Старые Safari, Android, iOS */
-//          url('webfont.svg#svgFontName') format('svg');          /* Древние Safari, iOS, Android */
-//     font-weight: normal;
-//     font-style: normal;
-// }
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/icons/fa-brands-400.eot);
+    src: url(../assets/fonts/icons/fa-brands-400.eot?#iefix) format("embedded-opentype"),
+        url(../assets/fonts/icons/fa-brands-400.woff2) format("woff2"),
+        url(../assets/fonts/icons/fa-brands-400.woff) format("woff"),
+        url(../assets/fonts/icons/fa-brands-400.ttf) format("truetype"),
+        url(../assets/fonts/icons/fa-brands-400.svg#fontawesome) format("svg")
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/icons/fa-regular-400.eot);
+    src: url(../assets/fonts/icons/fa-regular-400.eot?#iefix) format("embedded-opentype"),
+        url(../assets/fonts/icons/fa-regular-400.woff2) format("woff2"),
+        url(../assets/fonts/icons/fa-regular-400.woff) format("woff"),
+        url(../assets/fonts/icons/fa-regular-400.ttf) format("truetype"),
+        url(../assets/fonts/icons/fa-regular-400.svg#fontawesome) format("svg")
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 900;
+    src: url(../assets/fonts/icons/fa-solid-900.eot);
+    src: url(../assets/fonts/icons/fa-solid-900.eot?#iefix) format("embedded-opentype"),
+        url(../assets/fonts/icons/fa-solid-900.woff2) format("woff2"),
+        url(../assets/fonts/icons/fa-solid-900.woff) format("woff"),
+        url(../assets/fonts/icons/fa-solid-900.ttf) format("truetype"),
+        url(../assets/fonts/icons/fa-solid-900.svg#fontawesome) format("svg")
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands'
+}
+
+.far {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400
+}
+
+.fa,.fas {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900
+}
 
 @font-face {
     font-family: 'Grotesque-Bold';
@@ -53,6 +90,18 @@ $red-color: #c90126;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'EngraversGothic';
+    font-weight: normal;
+    font-style: normal;
+    src: url(../assets/fonts/bacardi-fonts/3503e66d-51e0-4ae5-a69b-2245ce0cd473.eot?#iefix);
+    src: url(../assets/fonts/bacardi-fonts/3503e66d-51e0-4ae5-a69b-2245ce0cd473.eot?#iefix) format("eot"),
+        url(../assets/fonts/bacardi-fonts/9edbccdb-d742-4854-be92-116cb48455c2.woff2) format("woff2"),
+        url(../assets/fonts/bacardi-fonts/46d6733f-4688-4a24-b4b9-c606b06c6620.woff) format("woff"),
+        url(../assets/fonts/bacardi-fonts/a018c9b6-78a0-46cc-9444-9908d475dfa3.ttf) format("truetype"),
+        url(../assets/fonts/bacardi-fonts/fc665405-dc01-40f1-9786-0afbf38948c9.svg#fc665405-dc01-40f1-9786-0afbf38948c9) format("svg")
+}
+
 
 /* === Reset style all browsers === */
 
@@ -75,10 +124,15 @@ ol, ul {
 a {
     text-decoration: none;
     cursor: pointer;
+    
+    &:hover {
+        color: $gold-color;
+    }
 }
 
 html {
     font-size: 10px;
+    font-family: 'Grotesque-Regular', Verdana, Tahoma, sans-serif;
     // font-family: 'Arial Regular', 'Arial', sans-serif;
     // color: #69747c;
     // background: #FFF;
@@ -124,13 +178,27 @@ body {
         }
     }
 
-    &-line {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin: auto;
+    // &-line {
+    //     display: flex;
+    //     align-items: center;
+    //     width: 100%;
+    //     margin: auto;
+    // }
 
-        .header-menu {
+    &-menu {
+        &__btn {
+            &.fa-bars {
+                position: absolute;
+                left: 20px;
+                &::before {
+                    content: "\f0c9";
+                    width: 30px;
+                    font-size: 30px;
+                    color: black;
+                }
+            }
+        }
+        &-logo {
             display: none;
         }
     }
@@ -148,15 +216,16 @@ body {
             width: 100%;
             justify-content: space-between;
             align-items: center;
+            flex-direction: column;
             margin: auto;
 
             .header-nav__items {
                 display: block;
-                position: absolute;
+                position: relative;
                 width: 190px;
                 height: auto;
                 top: auto;
-                left: auto;
+                left: 60px;
                 margin-left: -15px;
                 background: $header-bg-color;
             }
@@ -188,6 +257,8 @@ body {
                             &:before {
                                 top: 50%;
                                 transform: rotate(225deg);
+                                border-right-color: $gold-color;
+                                border-bottom-color: $gold-color;
                             }
                         }
                     }
@@ -207,12 +278,11 @@ body {
                     }
                 }
                 &:hover {
-                    color: red;
+                    color: $gold-color;
                 }
             }
         }
     }
-    
 }
 
 .panel {
@@ -226,11 +296,6 @@ body {
 
     &--type-hero_layout {
         width: 100%;
-        // height: 580px;
-        // background-image: url(../assets/images/bg.jpg);
-        // background-repeat: no-repeat;
-        // background-position: center;
-        // background-size: cover;
 
         .panel__container {
             width: 100%;
@@ -244,7 +309,6 @@ body {
                 height: 280px;
                 background-image: url(../assets/images/bg-festival-container.jpg);
             }
-            
         }
 
         &.bacardi_logo_center {
@@ -284,34 +348,40 @@ body {
                     }
 
                     .enter-your-code {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
                         input {
                             padding: 10px 20px;
                             font-size: 20px;
                         }
 
                         .fl-button {
-                            width: 120px;
-                            height: 80px;
+                            width: 150px;
+                            height: 60px;
                             margin: 30px;
                             &__link {
+                                font-size: 12px;
                                 color: white;
-                                padding: 20px 30px;
-                                background: $red-color;
-                                display: block;
+                                padding: 21px 50px;
+                                line-height: 60px;
                                 text-align: center;
                                 background: linear-gradient(135deg, transparent 10px, $red-color 0) top left,
                                             linear-gradient(-135deg, transparent 10px, $red-color 0) top right,
                                             linear-gradient(-45deg, transparent 10px, $red-color 0) bottom right,
                                             linear-gradient(45deg, transparent 10px, $red-color 0) bottom left;
                                 background-repeat: no-repeat;
-                                background-size: 50% 50%;
+                                background-size: 51% 51%;
+
+                                &:hover {
+                                    color: $gold-color;
+                                }
                             }
                         }
                         
                     }
                 }
             }
-           
         }
     }
 
@@ -321,7 +391,6 @@ body {
             display: flex;
             align-items: center;
         }
-
     }
 
     &__content--center {
@@ -330,11 +399,8 @@ body {
 
     &__restricted-content {
         display: flex;
-        // color: white;
-        // font-size: 53px;
         align-items: center;
         height: 100%;
-        // font-family: 'Grotesque-Regular';
 
         .slide-description__title {
             font-family: 'Grotesque-Condensed';
@@ -366,7 +432,6 @@ body {
             }
         }
 
-                
     }
 
     &__container {
@@ -378,4 +443,360 @@ body {
         justify-content: center;
     }
 
+    &--type-custom_layout_row {
+        width: 75%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .fl {
+            &-component {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 700px;
+                padding: 0 20px;
+                margin: 20px auto;
+            }
+
+            &-text {
+                text-transform: uppercase;
+                padding: 10px 0;
+                text-align: center;
+                .title {
+                    font-family: 'Grotesque-Bold';
+                    font-size: 28px;
+                }
+                h4 {
+                    font-family: 'Grotesque-Bold';
+                    font-size: 20px;
+                }
+                p {
+                    font-family: Garamond;
+                    font-size: 18px;
+                    text-transform: none;
+                    a {
+                        color: black;
+                        text-decoration: underline;
+                        &:hover {
+                            color: $gold-color;
+                        }
+                    }
+                }
+                .festival-text, .dates-text {
+                    font-family: 'Grotesque-Bold';
+                    font-size: 20px;
+                }
+                .dates-text {
+                    font-size: 28px;
+                    margin: 20px auto;
+                }
+
+                ul {
+                    display: flex;
+                    li {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        flex: 0.5;
+                        font-size: 18px;
+                        text-transform: none;
+                        font-family: Garamond;
+                        &:before {
+                            content: '';
+                            background-image: url(../assets/images/icon-sprate.png);
+                            background-position: 32% 55%;
+                            background-repeat: no-repeat;
+                            background-color: $red-color;
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            margin-bottom: 20px;
+                        }
+                        &.tickets::before {
+                            background-position: -3% 55%;
+                        }
+                        &.returns::before {
+                            background-position: 32% 55%;
+                        }
+                        &.transfers::before {
+                            background-position: 68% 55%;
+                        }
+                        &.accomodation::before {
+                            background-position: 103% 55%;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        &.main_prize, &.moves_you {
+            h2, h3 {
+                font-family: 'Grotesque-Bold';
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                line-height: 20px;
+
+                &:before, &:after {
+                    content: url(../assets/images/title-line.jpg);
+                    margin: 0 14px;
+                }
+                &:after {
+                    transform: rotate(180deg);
+                }
+            }
+           
+        }
+    }
+
+    &.bacardi_brand {
+        background-image: url(../assets/images/bg-brand.png);
+        background-repeat: no-repeat;
+        background-position: 50% 20px;
+        margin-top: 50px;
+
+        .row-panel {
+            &__row {
+                border-top: 2px solid $gold-color;
+                border-bottom: 2px solid $gold-color;
+            }
+            &__container {
+                display: flex;
+                flex-direction: column;
+
+                &:before, &:after {
+                    content: '';
+                    background-image: url(../assets/images/brand-line.png);
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    width: 100%;
+                    height: 30px;
+                    position: relative;
+                    top: -20px;
+                }
+                &:after {
+                    transform: rotate(180deg);
+                    top: 20px;
+                }
+
+                h3 {
+                    font-family: "Grotesque-Condensed";
+                    font-size: 34px;
+                    border-top: 3px solid black;
+                    border-bottom: 3px solid black;
+                    width: 440px;
+                    padding: 10px 135px;
+                    strong {
+                        font-family: 'Grotesque-Bold';
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.footer {
+    width: 100%;
+    &-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Grotesque-Bold', sans-serif;
+        font-size: 20px;
+        background: #1a1818;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        padding: 50px 0;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #fff;
+    }
+
+    &-social, &-sign {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-nav {
+            display: flex;
+            padding: 30px 0;
+            justify-content: center;
+
+            &-item {
+                margin: 0 10px;
+                &__link {
+                    display: flex;
+                    align-items: center;
+                    align-self: center;
+                    justify-content: center;
+                    color: $gold-color;
+                    border: solid 2px $gold-color;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    box-sizing: border-box;
+                    .fab {
+                        font-size: 2rem;
+                        font-weight: 100;
+                        font-style: normal;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    &-sign a {
+        font-size: 18px;
+        line-height: 20px;
+        color: $gold-color;
+        text-decoration: underline;
+        margin-top: 20px;
+        &:hover {
+            color: white;
+        }
+    }
+
+    .fa-twitter:before {
+        content: "\f099";
+    }
+
+    .fa-instagram:before {
+        content: "\f16d";
+    }
+
+    .fa-facebook-f:before {
+        content: "\f39e";
+    }
+
+    .fa-youtube:before {
+        content: "\f167";
+    }
+
+    &-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0 30px 0;
+        text-align: center;
+        border-bottom: solid 5px $gold-color;
+    }
+    &-responsibly {
+        font-family: 'Grotesque-Bold', sans-serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    &-visit, &-trademark {
+        font-size: 2rem;
+        padding: 20px 10px;
+    }
+
+    &-visit a {
+        margin: 0 8px;
+        color: black;
+        border-bottom: 1px solid black;
+        &:hover {
+            color: $gold-color;
+            border-color: $gold-color;
+        }
+    }
+
+    &-nav-item {
+        padding-bottom: 25px;
+        &__link {
+            font-family: 'EngraversGothic', sans-serif;
+            text-transform: uppercase;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            color: #000;
+            &:hover {
+                color: $gold-color;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 768px) {
+    .header {
+        &-menu__btn {
+            display: none;
+        }
+        &-line {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: auto;
+        }
+        &-nav {
+            &__items {
+                flex-direction: row;
+                .header-nav__items {
+                    position: absolute;
+                    width: 190px;
+                    height: auto;
+                    top: auto;
+                    left: auto;
+                    margin-left: -15px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        &-top {
+            flex-direction: row;
+            font-size: 1.8rem;
+            padding: 20px 0;
+        }
+
+        &-social, &-sign {
+            flex-direction: row;
+        }
+
+        &-sign a {
+            font-size: 16px;
+            margin: 0 0 0 10px;
+        }
+
+        &-responsibly {
+            display: flex;
+            font-size: 16px;
+        }
+        &-visit, &-trademark {
+            font-size: 1.6rem;
+            padding: 0;
+        }
+        &-nav {
+            display: flex;
+            flex-direction: row;
+            padding-top: 15px;
+            &-item {
+                margin: 0 14px;
+                &__link {
+                    font-size: 1.4rem;
+                    letter-spacing: 2px;
+                    &::before {
+                        content: "|";
+                        position: relative;
+                        right: 16px;
+                        color: $gold-color;
+                    }
+                }
+                &:first-child &__link::before {
+                        content: "";
+                    }
+            }
+        }
+
+    }
 }
